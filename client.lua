@@ -26,6 +26,7 @@ CreateThread(function ()
             DrawMarker(markerRendering().markerType, markerRendering().position.x, markerRendering().position.y, markerRendering().position.z-1.0, 0, 0, 0, 0, 0, 0, markerRendering().markerSize, markerRendering().markerSize, markerRendering().markerSize, markerRendering().markerColor.r, markerRendering().markerColor.g, markerRendering().markerColor.b, 100, 0, 0, 0, 0, 0, 0)
             if nearMarker() then
                 local markerData = markerRendering()
+                ShowHelpNotification(markerData.markerText)
                 if IsControlJustPressed(0, 38) then
                     markerData.trigger()
                 end  
@@ -35,3 +36,8 @@ CreateThread(function ()
         Wait(sleep)
     end
 end)
+
+function ShowHelpNotification(msg)
+    AddTextEntry("MIROW", msg)
+    DisplayHelpTextThisFrame("MIROW", false)
+end
