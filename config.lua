@@ -11,7 +11,7 @@ Config.Markers = {
             b = 0
         },
         markerSize = 1.0,
-        radius = 1.5,
+        radius = 1.5, 
         markerText = "Press ~INPUT_PICKUP~ to open the shop menu",
         trigger = function()
             print('Opened Menu')
