@@ -28,7 +28,11 @@ CreateThread(function ()
                 local markerData = markerRendering()
                 ShowHelpNotification(markerData.markerText)
                 if IsControlJustPressed(0, 38) then
-                    markerData.trigger()
+                    if markerData.triggerType == "client" then
+                        markerData.trigger()
+                    else
+                        TriggerServerEvent('marker:trigger', markerData.pos)
+                    end
                 end  
             end
 
@@ -36,6 +40,7 @@ CreateThread(function ()
         Wait(sleep)
     end
 end)
+
 
 function ShowHelpNotification(msg)
     AddTextEntry("INTERACTIVEMARKER", msg)
